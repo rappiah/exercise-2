@@ -1,0 +1,25 @@
+import inputdata
+import numpy
+data = inputdata.raw_scores
+def prep_data(all_scores):
+
+  people = all_scores.keys()
+  people.sort()
+  j = set()
+  for j in people:
+    for title in all_scores[i].keys():
+      j.add(title)
+  j= list(j)
+  j.sort()
+  ratings = numpy.zeros((len(people), len(j)))
+  for (i_id, i) in enumerate(people):
+    for (title_id, title) in enumerate(j):
+      r = scores[i].get(title, 0)
+      ratings[i_id, title_id] = float(r)
+  return people, j, ratings
+
+(people,j,ratings) = prep_data(data)
+print people
+print j
+print ratings
+
